@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{547FF4B4-082A-41D3-A68A-F145FF5209FA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YourSensei.ViewModel</RootNamespace>
+    <AssemblyName>YourSensei.ViewModel</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Authentication\CardDetailsInputViewModel.cs" />
+    <Compile Include="Authentication\GetUserDetailResponseViewModel.cs" />
+    <Compile Include="Authentication\LoginResponse.cs" />
+    <Compile Include="Authentication\PendingApprovalViewModel.cs" />
+    <Compile Include="Authentication\SignupInputViewModel.cs" />
+    <Compile Include="Authentication\TechSupportInputViewModel.cs" />
+    <Compile Include="Dashboard\BeltPropertiesViewModel.cs" />
+    <Compile Include="Dashboard\BeltRuleInputViewModel.cs" />
+    <Compile Include="Dashboard\CreditStandingViewModel.cs" />
+    <Compile Include="Dashboard\GetDashboardBeltRuleViewModel.cs" />
+    <Compile Include="Dashboard\PyramidViewModel.cs" />
+    <Compile Include="Dashboard\TotalA3AndKaizenViewModel.cs" />
+    <Compile Include="Emails\A3-KaizenCommunicationViewModel.cs" />
+    <Compile Include="Emails\BookReadToEmployeeViewModel.cs" />
+    <Compile Include="Emails\BookReadToMentorViewModel.cs" />
+    <Compile Include="Emails\CloseA3EvtMailToAttViewModel.cs" />
+    <Compile Include="Emails\CloseEventEmailViewModel.cs" />
+    <Compile Include="Emails\CloseEventMailToAttViewModel.cs" />
+    <Compile Include="Emails\EmailForDollarApproveViewModel.cs" />
+    <Compile Include="Emails\NewEventNotificationViewmodel.cs" />
+    <Compile Include="Emails\QuizAssMailToAdminViewModel.cs" />
+    <Compile Include="Emails\QuizAssMailToMentor.cs" />
+    <Compile Include="Emails\SendA3FormUpdateNotifyEmail.cs" />
+    <Compile Include="Emails\SendKaizenFormUpdateNotifyEmail.cs" />
+    <Compile Include="Emails\QuizAssMailToUserViewModel.cs" />
+    <Compile Include="Emails\ChangePasswordViewModel.cs" />
+    <Compile Include="Emails\TrainingEventInvitationMailViewModel.cs" />
+    <Compile Include="Emails\WelMailToEmpViewModel.cs" />
+    <Compile Include="Emails\TechnicalSupportEmailViewModel.cs" />
+    <Compile Include="Employe\GetEmployeeByMentorViewModel.cs" />
+    <Compile Include="Library\TrackCategoryViewModel.cs" />
+    <Compile Include="Library\BookTrackCategoryViewModel.cs" />
+    <Compile Include="Mentor\GetMentorByIsActivedatViewModel.cs" />
+    <Compile Include="Subscription\SubscriptionResponseViewModel.cs" />
+    <Compile Include="Subscription\SubscriptionViewModel.cs" />
+    <Compile Include="Subscription\FeaturesAllowedModel.cs" />
+    <Compile Include="Subscription\SubscriptionPlanViewModel.cs" />
+    <Compile Include="CompanySetting\CompanySettingViewModel.cs" />
+    <Compile Include="CreditLog\CreditLogByCompanyIdResponseViewModel.cs" />
+    <Compile Include="CreditLog\CreditLogByEmployeeIdResponseViewModel.cs" />
+    <Compile Include="Employe\EmployeeResponseViewModel.cs" />
+    <Compile Include="Employe\RoleResponseViewModel.cs" />
+    <Compile Include="InitialAssessment\AssessmentAnswerInputViewModel.cs" />
+    <Compile Include="InitialAssessment\InitialAssessmentAnswerViewModel.cs" />
+    <Compile Include="InitialAssessment\GetInitialAssessmentResponseViewModel.cs" />
+    <Compile Include="Library\SelectedCompanyLibraryBookLogsViewModel.cs" />
+    <Compile Include="Library\CompanyLibraryBookLogsViewModel.cs" />
+    <Compile Include="Library\BookReadViewModel.cs" />
+    <Compile Include="Library\CompanyLibraryBookViewModel.cs" />
+    <Compile Include="Library\GetBookResponseViewModel.cs" />
+    <Compile Include="Mentor\MentorResponseViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Quiz\GetQuestionListResponseViewModel.cs" />
+    <Compile Include="Quiz\QuizResponse.cs" />
+    <Compile Include="Quiz\QuestionViewModel.cs" />
+    <Compile Include="Quiz\QuizViewModel.cs" />
+    <Compile Include="Quiz\GetQuizLIstResponseViewModel.cs" />
+    <Compile Include="Quiz\QuizAnswerAssessmentInputViewModel.cs" />
+    <Compile Include="ResponseViewModel.cs" />
+    <Compile Include="TrainingEvents\A3FormViewModel.cs" />
+    <Compile Include="TrainingEvents\A3TrainingEventViewModel.cs" />
+    <Compile Include="TrainingEvents\CreateEventInputViewModel.cs" />
+    <Compile Include="TrainingEvents\CreateEventResponseViewModel.cs" />
+    <Compile Include="CreditLog\CreditLogsResponseViewModel.cs" />
+    <Compile Include="TrainingEvents\KaizenBoardListViewModel.cs" />
+    <Compile Include="TrainingEvents\KaizenFormViewModel.cs" />
+    <Compile Include="TrainingEvents\KaizenTrainingEventViewModel.cs" />
+    <Compile Include="TrainingEvents\MentorDetailsViewModel.cs" />
+    <Compile Include="TrainingEvents\SelectedEmpToTrainingEventInputViewModel.cs" />
+    <Compile Include="TrainingEvents\SelectEmployeeToEventResponseViewModel.cs" />
+    <Compile Include="TrainingEvents\TrainingEventAttendeeMentorViewModel.cs" />
+    <Compile Include="TrainingEvents\TrainingEventAttendeeInputViewModel.cs" />
+    <Compile Include="TrainingEvents\TrainingEventListViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\YourSensei.Data\YourSensei.Data.csproj">
+      <Project>{74D0617C-3B12-4862-80CF-35C000DA8371}</Project>
+      <Name>YourSensei.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

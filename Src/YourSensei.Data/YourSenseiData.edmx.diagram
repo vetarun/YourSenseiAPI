@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6d270d57e9534b7ba7721b421d75b263" Name="Diagram1">
+        <EntityTypeShape EntityType="YourSensei_DBModel.BookCategory" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="YourSensei_DBModel.BookRead" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="YourSensei_DBModel.CompanyDetail" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="YourSensei_DBModel.CompanyLibraryBookLog" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="YourSensei_DBModel.CompanyLibraryBookLogTransaction" Width="1.5" PointX="2.75" PointY="5.75" />
+        <EntityTypeShape EntityType="YourSensei_DBModel.CompanyLibraryBook" Width="1.5" PointX="4.75" PointY="5.75" />
+        <EntityTypeShape EntityType="YourSensei_DBModel.CreditLog" Width="1.5" PointX="6.75" PointY="4.75" />
+        <EntityTypeShape EntityType="YourSensei_DBModel.Employee" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="YourSensei_DBModel.InitialAssessmentAnswer" Width="1.5" PointX="8.75" PointY="6.75" />
+        <EntityTypeShape EntityType="YourSensei_DBModel.InitialAssessmentCategory" Width="1.5" PointX="0.75" PointY="9.75" />
+        <EntityTypeShape EntityType="YourSensei_DBModel.InitialAssessmentOption" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="YourSensei_DBModel.InitialAssessmentQuestion" Width="1.5" PointX="10.75" PointY="4.75" />
+        <EntityTypeShape EntityType="YourSensei_DBModel.Member" Width="1.5" PointX="10.75" PointY="8.75" />
+        <EntityTypeShape EntityType="YourSensei_DBModel.Mentor" Width="1.5" PointX="6.75" PointY="11.75" />
+        <EntityTypeShape EntityType="YourSensei_DBModel.MentorCompanyMapping" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="YourSensei_DBModel.Question" Width="1.5" PointX="2.75" PointY="12.75" />
+        <EntityTypeShape EntityType="YourSensei_DBModel.QuestionOption" Width="1.5" PointX="12.75" PointY="3.75" />
+        <EntityTypeShape EntityType="YourSensei_DBModel.Quiz" Width="1.5" PointX="12.75" PointY="7.75" />
+        <EntityTypeShape EntityType="YourSensei_DBModel.QuizAnswerAssessment" Width="1.5" PointX="12.75" PointY="11.75" />
+        <EntityTypeShape EntityType="YourSensei_DBModel.QuizBookMapping" Width="1.5" PointX="14.75" PointY="0.75" />
+        <EntityTypeShape EntityType="YourSensei_DBModel.TechnicalSupport" Width="1.5" PointX="14.75" PointY="3.75" />
+        <EntityTypeShape EntityType="YourSensei_DBModel.TrainingEventAttendee" Width="1.5" PointX="8.75" PointY="14.75" />
+        <EntityTypeShape EntityType="YourSensei_DBModel.TrainingEventFormat" Width="1.5" PointX="14.75" PointY="12.75" />
+        <EntityTypeShape EntityType="YourSensei_DBModel.UserCategory" Width="1.5" PointX="0.75" PointY="16.75" />
+        <EntityTypeShape EntityType="YourSensei_DBModel.UserDetail" Width="1.5" PointX="2.75" PointY="16.75" />
+        <EntityTypeShape EntityType="YourSensei_DBModel.UserRole" Width="1.5" PointX="4.75" PointY="16.75" />
+        <EntityTypeShape EntityType="YourSensei_DBModel.CompanySetting" Width="1.5" PointX="15.375" PointY="7.75" />
+        <EntityTypeShape EntityType="YourSensei_DBModel.TrainingEvent" Width="1.5" PointX="13.375" PointY="16.75" />
+        <EntityTypeShape EntityType="YourSensei_DBModel.TrainingEventA3Diagram" Width="1.5" PointX="15.375" PointY="16.75" />
+        <EntityTypeShape EntityType="YourSensei_DBModel.A3TrainingEventCommunication" Width="1.5" PointX="17.375" PointY="0.75" />
+        <EntityTypeShape EntityType="YourSensei_DBModel.SubscriptionPlan" Width="1.5" PointX="7.375" PointY="17.75" />
+        <EntityTypeShape EntityType="YourSensei_DBModel.SubscriptionPlanHistory" Width="1.5" PointX="17.375" PointY="12.75" />
+        <EntityTypeShape EntityType="YourSensei_DBModel.Subscription" Width="1.5" PointX="17.375" PointY="16.75" />
+        <EntityTypeShape EntityType="YourSensei_DBModel.WorkQueue" Width="1.5" PointX="17.375" PointY="3.75" />
+        <EntityTypeShape EntityType="YourSensei_DBModel.PaymentCardDetail" Width="1.5" PointX="17.375" PointY="7.75" />
+        <EntityTypeShape EntityType="YourSensei_DBModel.BeltRuleLog" Width="1.5" PointX="19.375" PointY="5.75" />
+        <EntityTypeShape EntityType="YourSensei_DBModel.BeltRuleLogTransaction" Width="1.5" PointX="19.375" PointY="10.75" />
+        <EntityTypeShape EntityType="YourSensei_DBModel.BeltRule" Width="1.5" PointX="19.375" PointY="0.75" />
+        <EntityTypeShape EntityType="YourSensei_DBModel.BeltAchievementLog" Width="1.5" PointX="19.375" PointY="14.75" />
+        <EntityTypeShape EntityType="YourSensei_DBModel.SubscriptionTransaction" Width="1.5" PointX="9.375" PointY="17.75" />
+        <EntityTypeShape EntityType="YourSensei_DBModel.KaizenTrainingEventCommunication" Width="1.5" PointX="19.375" PointY="17.75" />
+        <EntityTypeShape EntityType="YourSensei_DBModel.TrainingEventKaizenDiagram" Width="1.5" PointX="19.375" PointY="20.75" />
+        <EntityTypeShape EntityType="YourSensei_DBModel.EmailWorkQueue" Width="1.5" PointX="21.375" PointY="0.75" />
+        <EntityTypeShape EntityType="YourSensei_DBModel.BookTrackCategory" Width="1.5" PointX="0.75" PointY="21.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{74D0617C-3B12-4862-80CF-35C000DA8371}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YourSensei.Data</RootNamespace>
+    <AssemblyName>YourSensei.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="A3TrainingEventCommunication.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BeltAchievementLog.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BeltRule.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BeltRuleLog.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BeltRuleLogTransaction.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BookCategory.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BookRead.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BookTrackCategory.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CompanyDetail.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CompanyLibraryBook.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CompanyLibraryBookLog.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CompanyLibraryBookLogTransaction.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CompanySetting.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CreditLog.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmailWorkQueue.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Employee.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InitialAssessmentAnswer.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InitialAssessmentCategory.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InitialAssessmentOption.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InitialAssessmentQuestion.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KaizenTrainingEventCommunication.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Member.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mentor.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MentorCompanyMapping.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentCardDetail.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Question.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QuestionOption.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Quiz.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QuizAnswerAssessment.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QuizBookMapping.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Subscription.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SubscriptionPlan.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SubscriptionPlanHistory.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SubscriptionTransaction.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TechnicalSupport.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TrainingEvent.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TrainingEventA3Diagram.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TrainingEventAttendee.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TrainingEventFormat.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TrainingEventKaizenDiagram.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserCategory.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserDetail.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserRole.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_GetCreditLogsByUserDetailID_Result.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_GetMentorByIsActive_Result.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_GetRegistrationDetails_Result.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorkQueue.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="YourSenseiData.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>YourSenseiData.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="YourSenseiData.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="YourSenseiData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>YourSenseiData.edmx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="YourSenseiData.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>YourSenseiData.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+    <None Include="YourSenseiData.edmx.diagram">
+      <DependentUpon>YourSenseiData.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="YourSenseiData.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>YourSenseiData.Context.cs</LastGenOutput>
+      <DependentUpon>YourSenseiData.edmx</DependentUpon>
+    </Content>
+    <Content Include="YourSenseiData.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>YourSenseiData.edmx</DependentUpon>
+      <LastGenOutput>YourSenseiData.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

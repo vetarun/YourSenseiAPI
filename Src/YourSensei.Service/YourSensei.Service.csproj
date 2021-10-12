@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{393B988E-C271-442E-9E4B-B3E16A9B6547}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YourSensei.Service</RootNamespace>
+    <AssemblyName>YourSensei.Service</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.8.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Portable.BouncyCastle.1.8.8\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Authentication\AuthenticationService.cs" />
+    <Compile Include="Authentication\IAuthenticationService.cs" />
+    <Compile Include="CompanyDetail\CompanyDetailService.cs" />
+    <Compile Include="CompanyDetail\ICompanyDetailService.cs" />
+    <Compile Include="CompanySetting\CompanySettingService.cs" />
+    <Compile Include="CompanySetting\ICompanySettingService.cs" />
+    <Compile Include="CreditLog\ICreditLogService.cs" />
+    <Compile Include="CreditLog\CreditLogService.cs" />
+    <Compile Include="Dashboard\DashboardService.cs" />
+    <Compile Include="Dashboard\IDashboardService.cs" />
+    <Compile Include="Employe\EmployeeService.cs" />
+    <Compile Include="Employe\IEmployeeService.cs" />
+    <Compile Include="InitialAssessment\IInitialAssessmentService.cs" />
+    <Compile Include="InitialAssessment\InitialAssessmentService.cs" />
+    <Compile Include="Library\ILibraryService.cs" />
+    <Compile Include="Library\LibraryService.cs" />
+    <Compile Include="Mentor\IMentorService.cs" />
+    <Compile Include="Mentor\MentorService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Quiz\IQuizService.cs" />
+    <Compile Include="Quiz\QuizService.cs" />
+    <Compile Include="Subscription\ISubscriptionService.cs" />
+    <Compile Include="Subscription\SubscriptionService.cs" />
+    <Compile Include="TrainingEvent\ITrainingEventService.cs" />
+    <Compile Include="TrainingEvent\TrainingEventService.cs" />
+    <Compile Include="EmailWorkQueue\IEmailWorkQueueService.cs" />
+    <Compile Include="EmailWorkQueue\EmailWorkQueueService.cs" />
+    <Compile Include="WorkQueue\IWorkQueueService.cs" />
+    <Compile Include="WorkQueue\WorkQueueService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\YourSensei.Data\YourSensei.Data.csproj">
+      <Project>{74D0617C-3B12-4862-80CF-35C000DA8371}</Project>
+      <Name>YourSensei.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YourSensei.Utility\YourSensei.Utility.csproj">
+      <Project>{BA723BC2-ADEC-4E7A-BBB4-0AA935479FF7}</Project>
+      <Name>YourSensei.Utility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YourSensei.ViewModel\YourSensei.ViewModel.csproj">
+      <Project>{547FF4B4-082A-41D3-A68A-F145FF5209FA}</Project>
+      <Name>YourSensei.ViewModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
