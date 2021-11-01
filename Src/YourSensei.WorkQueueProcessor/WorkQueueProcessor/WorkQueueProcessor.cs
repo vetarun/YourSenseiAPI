@@ -102,22 +102,17 @@ namespace YourSensei.WorkQueueProcessor
 
                     if (item.RoleId == "Company User" || item.RoleId == "Company Admin" || item.RoleId == "Individual")
                     {
-                        if (item.Email == "companymichaelsmith@gmail.com")
-                        {
-
-                            Task<GetDashboardBeltRuleViewModel> BeltDetails = Task.Run(() => _dashboard.GetDashboardBeltDetails(item.CompanyId, item.userDetialID, item.Id, false));
-                            BeltDetails.Wait();
-                            GetDashboardBeltRuleViewModel beltdetails = BeltDetails.Result;
-                            userid = item.UserCategory.ToUpper() == "FBDE320E-6619-4F25-9E7F-2FCC94D2879E".ToUpper() ? item.userDetialID : "00000000-0000-0000-0000-000000000000";
-                            Task<List<CreditStandingViewModel>> GetCreditStandings = Task.Run(() => _dashboard.GetCreditStandings(item.CompanyId, userid, false));
-                            GetCreditStandings.Wait();
-                            List<CreditStandingViewModel> getCreditStandings = GetCreditStandings.Result;
+                        Task<GetDashboardBeltRuleViewModel> BeltDetails = Task.Run(() => _dashboard.GetDashboardBeltDetails(item.CompanyId, item.userDetialID, item.Id, false));
+                        BeltDetails.Wait();
+                        GetDashboardBeltRuleViewModel beltdetails = BeltDetails.Result;
+                        userid = item.UserCategory.ToUpper() == "FBDE320E-6619-4F25-9E7F-2FCC94D2879E".ToUpper() ? item.userDetialID : "00000000-0000-0000-0000-000000000000";
+                        Task<List<CreditStandingViewModel>> GetCreditStandings = Task.Run(() => _dashboard.GetCreditStandings(item.CompanyId, userid, false));
+                        GetCreditStandings.Wait();
+                        List<CreditStandingViewModel> getCreditStandings = GetCreditStandings.Result;
 
 
-                            _email.SendWeeklyEmail(beltdetails, getCreditStandings, item);
-                       
-                        }
-                        
+                        _email.SendWeeklyEmail(beltdetails, getCreditStandings, item);
+
                     }
 
                 }

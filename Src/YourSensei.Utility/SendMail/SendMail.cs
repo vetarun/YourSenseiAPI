@@ -24,7 +24,7 @@ namespace YourSensei.Utility
             try
             {
                 MailMessage mail = new MailMessage();
-                mail.From = new MailAddress("gettingsmarter@yoursensei.org");
+                mail.From = new MailAddress(ConfigurationManager.AppSettings["FromMailAddress"].ToString());
                 mail.To.Add(model.Email);
 
                 //todo dynamic subject
@@ -34,10 +34,10 @@ namespace YourSensei.Utility
                 mail.IsBodyHtml = true;
                 mail.BodyEncoding = System.Text.Encoding.UTF8;
                 SmtpClient smtp = new SmtpClient();
-                smtp.Host = "smtp.ionos.com";
-                smtp.Port = 25;
+                smtp.Host = ConfigurationManager.AppSettings["SMTPHost"].ToString();
+                smtp.Port = Convert.ToInt32(ConfigurationManager.AppSettings["SMTPPort"].ToString());
                 smtp.UseDefaultCredentials = true;
-                smtp.Credentials = new System.Net.NetworkCredential("gettingsmarter@yoursensei.org", "YouR$eN$ei123");// Enter senders Email and password
+                smtp.Credentials = new System.Net.NetworkCredential(ConfigurationManager.AppSettings["FromMailAddress"].ToString(), ConfigurationManager.AppSettings["FromMailPassword"].ToString());// Enter senders Email and password
                 smtp.EnableSsl = true;
 
                 smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
