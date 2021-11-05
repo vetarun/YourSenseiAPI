@@ -482,7 +482,7 @@ namespace YourSensei.Service
                             SendToEmployee = Guid.Empty,
                             Subject = "Book Read - " + bookcredit.Title,
                             Body = "",
-                            Template = "BookReadWithQuizToEmployee.html",
+                            Template = bookcredit.QuizID == 0 ? "BookReadToEmployee.html" : "BookReadWithQuizToEmployee.html",
                             TemplateContent = new JavaScriptSerializer().Serialize(bookReadToEmployeeViewModel),
                             Status = "Pending",
                             CreatedDate = DateTime.UtcNow,
