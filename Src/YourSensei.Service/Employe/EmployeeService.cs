@@ -77,8 +77,16 @@ namespace YourSensei.Service
                         IsActive = a.IsActive,
                         EmployeeCode = a.EmployeeCode,
                         Credit = ListOflogs.Sum(item => item.Credit) ,
-                        UserCategory = userDetail.UserType.ToString() ?? ""
+                        UserCategory = userDetail.UserType.ToString() ?? "" 
+                       
                     };
+
+                    if (obj.RoleId == "N/A")
+                    {
+                        Employee employee = _context.Employees.Where(x => x.EmployeeCode == obj.EmployeeCode).FirstOrDefault();
+                        obj.RoleId = employee.OtherRole;
+                    }
+
                     listofemp.Add(obj);
                 }
                 return listofemp;
