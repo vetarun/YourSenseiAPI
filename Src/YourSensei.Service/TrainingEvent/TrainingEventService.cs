@@ -1014,6 +1014,7 @@ namespace YourSensei.Service
                 }
                 else
                 {
+                  
                     var isformidExist = await _context.TrainingEventA3Diagram.FindAsync(input.id);
                     if (isformidExist != null)
                     {
