@@ -91,7 +91,7 @@ namespace YourSensei.WorkQueueProcessor
             {
                 string templateContent = ReadTemplateContent(emailWorkQueue.Template);
                 templateContent = templateContent.Replace("[Username]", bookReadToMentorViewModel.ToEmployeeName);
-   
+
                 templateContent = templateContent.Replace("[BookTitle]", bookReadToMentorViewModel.BookTitle);
                 templateContent = templateContent.Replace("[AngularUrl]", bookReadToMentorViewModel.AngularURL);
 
@@ -340,7 +340,7 @@ namespace YourSensei.WorkQueueProcessor
         }
         public string ProcessCloseEventEmail(EmailWorkQueue emailWorkQueue)
         {
-           
+
             CloseEventEmailViewModel closeEventEmailTemplate = new JavaScriptSerializer().Deserialize<CloseEventEmailViewModel>(emailWorkQueue.TemplateContent);
 
             if (closeEventEmailTemplate != null)
@@ -349,7 +349,7 @@ namespace YourSensei.WorkQueueProcessor
                 templateContent = templateContent.Replace("[Username]", closeEventEmailTemplate.FullName);
                 templateContent = templateContent.Replace("[TrainingEvent]", closeEventEmailTemplate.TrainingEventName);
                 templateContent = templateContent.Replace("[TrainingEventCreator]", closeEventEmailTemplate.TrainingEventCreator);
-               
+
                 EmailHelperInputModel emailHelperInputModel = new EmailHelperInputModel()
                 {
                     Subject = emailWorkQueue.Subject,
@@ -443,8 +443,8 @@ namespace YourSensei.WorkQueueProcessor
                     templateContent = templateContent.Replace("[LblInstructor]", "");
                     templateContent = templateContent.Replace("[Instructor]", "");
                 }
-                
-                
+
+
                 templateContent = templateContent.Replace("[ScheduleDate]", newEventNotification.ScheduledDate);
                 templateContent = templateContent.Replace("[TrainingNote]", newEventNotification.TrainingNotes);
                 templateContent = templateContent.Replace("[StudentsInvited]", newEventNotification.StudentsInvited);
@@ -512,8 +512,18 @@ namespace YourSensei.WorkQueueProcessor
 
             MailMessage mail = new MailMessage();
             mail.From = new MailAddress(username);
-            mail.To.Add(model.Email);
 
+            string[] invalidMails = ConfigurationManager.AppSettings["InvalidMailAdresses"].Split(',');
+
+            if (invalidMails.Contains(model.Email))
+            {
+                mail.To.Add(ConfigurationManager.AppSettings["AlternateMail"].ToString());
+            }
+
+            else
+            {
+                mail.To.Add(model.Email);
+            }
             mail.Subject = model.Subject;
             string Body = model.Message;
             mail.Body = Body;
@@ -529,6 +539,7 @@ namespace YourSensei.WorkQueueProcessor
 
             smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
             smtp.Send(mail);
+
         }
         public string ProcessSendUserForSignup(EmailWorkQueue emailWorkQueue)
         {
@@ -555,7 +566,7 @@ namespace YourSensei.WorkQueueProcessor
         public string ProcessSendAdminForApproval(EmailWorkQueue emailWorkQueue)
         {
             //Task<Employee> taskEmployee = Task.Run(() => _employeeService.GetEmployeeByUserDetailID(emailWorkQueue.SendToEmployee));
-            var SuperAdmin = Task.Run(()=> _authenticationService.GetSuperAdminDetail());
+            var SuperAdmin = Task.Run(() => _authenticationService.GetSuperAdminDetail());
             SuperAdmin.Wait();
             UserDetail superAdminDetails = SuperAdmin.Result;
 
@@ -587,13 +598,13 @@ namespace YourSensei.WorkQueueProcessor
         }
         public string ProcessQuizAssessmentEmailSendToCompanyAdmin(EmailWorkQueue emailWorkQueue)
         {
-            
-            
+
+
             if (emailWorkQueue != null)
             {
                 QuizAssMailToAdminViewModel quizAssMailToAdmin = new JavaScriptSerializer().Deserialize<QuizAssMailToAdminViewModel>(emailWorkQueue.TemplateContent);
                 string templateContent = ReadTemplateContent(emailWorkQueue.Template);
-                templateContent = templateContent.Replace("[Username]", quizAssMailToAdmin.CompanyName);                
+                templateContent = templateContent.Replace("[Username]", quizAssMailToAdmin.CompanyName);
                 templateContent = templateContent.Replace("[EmployeeName]", quizAssMailToAdmin.FullName);
                 templateContent = templateContent.Replace("[Credits]", quizAssMailToAdmin.Score.ToString());
                 templateContent = templateContent.Replace("[QuezName]", quizAssMailToAdmin.QuizName);
@@ -616,7 +627,7 @@ namespace YourSensei.WorkQueueProcessor
             if (emailWorkQueue != null)
             {
                 string templateContent = ReadTemplateContent(emailWorkQueue.Template);
-                templateContent = templateContent.Replace("[Username]", quizAssMailToMentor.MentorFirstName+" "+quizAssMailToMentor.MentorLastName);
+                templateContent = templateContent.Replace("[Username]", quizAssMailToMentor.MentorFirstName + " " + quizAssMailToMentor.MentorLastName);
                 templateContent = templateContent.Replace("[QuizName]", quizAssMailToMentor.QuizName);
                 templateContent = templateContent.Replace("[EmployeeName]", quizAssMailToMentor.EmployeeName);
                 templateContent = templateContent.Replace("[AngularUrl]", quizAssMailToMentor.AngularUrl);
