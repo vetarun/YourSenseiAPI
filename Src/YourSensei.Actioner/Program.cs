@@ -28,7 +28,7 @@ namespace YourSensei.Actioner
             else if (args[0] == "ProcessEmailEvery5Minutes")
             {
                 workQueueProcessor.ProcessEmailEvery5Minutes();
-            }
+            }    
         }
     }
 }
