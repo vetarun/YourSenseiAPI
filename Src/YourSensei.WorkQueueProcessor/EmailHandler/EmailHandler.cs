@@ -609,7 +609,6 @@ namespace YourSensei.WorkQueueProcessor
                 templateContent = templateContent.Replace("[Credits]", quizAssMailToAdmin.Score.ToString());
                 templateContent = templateContent.Replace("[QuezName]", quizAssMailToAdmin.QuizName);
 
-
                 EmailHelperInputModel emailHelperInputModel = new EmailHelperInputModel()
                 {
                     Subject = emailWorkQueue.Subject,

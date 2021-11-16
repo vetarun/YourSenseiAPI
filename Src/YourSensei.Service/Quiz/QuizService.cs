@@ -202,7 +202,7 @@ namespace YourSensei.Service
                         QuizAssMailToAdminViewModel quizAssMailToAdmin = new QuizAssMailToAdminViewModel()
                         {
                             FullName=fullName,
-                            Score=score,
+                            Score=percentagebookcredit,
                             QuizName=quizDetial.Name,
                             CompanyEmail=companyDetials.email,
                             CompanyName=companyDetials.companyname
