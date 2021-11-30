@@ -918,6 +918,7 @@ namespace YourSensei.Service
                 obj.IsModified = false;
                 obj.IsVersion = false;
                 obj.QuizID = book.QuizID;
+                obj.TrackCategory = book.TrackCategory;
                 _context.CompanyLibraryBooks.Add(obj);
                 _context.SaveChanges();
             }
