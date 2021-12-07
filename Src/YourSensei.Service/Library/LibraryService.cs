@@ -249,19 +249,29 @@ namespace YourSensei.Service
                         result.ModifiedDate = DateTime.UtcNow;
                         result.ModifiedBy = new Guid(book.UserId);
                         result.IsModified = true;
-                        if (result.TrackCategory.Split('-')[0] == book.TrackCategory)
+
+                        if (result.TrackCategory == book.TrackCategory && result.TrackCategory == "") 
                         {
-                            result.TrackCategory = book.TrackCategory + "-" + result.TrackCategory.Split('-')[1];
+                            result.TrackCategory = "";
                         }
-                        else
+
+                        else if (result.TrackCategory != null)
                         {
-                            if (!string.IsNullOrWhiteSpace(result.TrackCategory))
+                            if (result.TrackCategory.Split('-')[0] == book.TrackCategory)
                             {
-                                var trackIniTial = result.TrackCategory.Split('-')[0];
-                                var sequenceNumber = result.TrackCategory.Split('-')[1];
-                                ChangeBookTrackCategorySequence(book.isIndividual,book.UserId,book.CompanyID,trackIniTial,sequenceNumber);
+                                result.TrackCategory = book.TrackCategory + "-" + result.TrackCategory.Split('-')[1];
                             }
-                            result.TrackCategory = book.TrackCategory + "-" + Convert.ToString(trackCategoryInitialCount + 1);
+
+                            else
+                            {
+                                if (!string.IsNullOrWhiteSpace(result.TrackCategory))
+                                {
+                                    var trackIniTial = result.TrackCategory.Split('-')[0];
+                                    var sequenceNumber = result.TrackCategory.Split('-')[1];
+                                    ChangeBookTrackCategorySequence(book.isIndividual, book.UserId, book.CompanyID, trackIniTial, sequenceNumber);
+                                }
+                                result.TrackCategory = book.TrackCategory + "-" + Convert.ToString(trackCategoryInitialCount + 1);
+                            }
                         }
 
                         var response = await _context.SaveChangesAsync();
