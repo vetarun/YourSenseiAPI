@@ -440,7 +440,7 @@ namespace YourSensei.Service
             decimal rtn = 0;
             DateTime date = DateTime.UtcNow;
             DateTime mondayOfLastWeek = date.AddDays(-(int)date.DayOfWeek - 6);
-            DateTime saturdayOfLastWeek = mondayOfLastWeek.AddDays(5);
+            DateTime saturdayOfLastWeek = mondayOfLastWeek.AddDays(6);
 
 
             if (!emptycreditslist.Any(d => d.UserDetailID == new Guid(userdetailid)))
@@ -457,8 +457,8 @@ namespace YourSensei.Service
                                    select c).Count();
 
 
-                var result = creditslist.FirstOrDefault(d => (d.AwardedDate >= mondayOfLastWeek || d.AwardedDate <= saturdayOfLastWeek) && d.UserDetailID == new Guid(userdetailid));
-                decimal lastweekci = creditslist.Where(d => (d.AwardedDate >= mondayOfLastWeek && d.AwardedDate <= saturdayOfLastWeek) && d.UserDetailID == new Guid(userdetailid)).Sum(d => d.CICredits);
+                var result = creditslist.FirstOrDefault(d => (d.AwardedDate.Date >= mondayOfLastWeek.Date || d.AwardedDate.Date <= saturdayOfLastWeek.Date) && d.UserDetailID == new Guid(userdetailid));
+                decimal lastweekci = creditslist.Where(d => (d.AwardedDate.Date >= mondayOfLastWeek.Date && d.AwardedDate.Date <= saturdayOfLastWeek.Date) && d.UserDetailID == new Guid(userdetailid)).Sum(d => d.CICredits);
                 result.CILastWeek = lastweekci;
                 result.CICredits = creditslist.Where(d => d.UserDetailID == new Guid(userdetailid)).Sum(d => d.CICredits);
                 result.BeltName = getBeltName(result.CICredits, A3Total, KAizenTotal, companyId, userdetailid).BeltName;
