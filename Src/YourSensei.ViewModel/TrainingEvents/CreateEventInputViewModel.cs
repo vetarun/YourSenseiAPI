@@ -32,5 +32,6 @@ namespace YourSensei.ViewModel
         public string instructorName { get; set; }
         public DateTime? ClosedDate { get; set; }
         public string status { get; set; }
+        public string responsibleTrainerEmployeeID { get; set; }
     }
 }

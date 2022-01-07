@@ -523,6 +523,7 @@ namespace YourSensei.Service
 
                 CreateEventInputViewModel obj = new CreateEventInputViewModel
                 {
+                    responsibleTrainerEmployeeID = employee.ID.ToString(),
                     responsibletrainer = Convert.ToString(result.responsibletrainer),
                     responsibleTrainerName = employee.FirstName + " " + employee.LastName,
                     trainingformat = Convert.ToString(result.TrainingEventFormatID),
@@ -972,6 +973,17 @@ namespace YourSensei.Service
                     };
                     _context.TrainingEventA3Diagram.Add(field);
                     await _context.SaveChangesAsync();
+
+                    //TrainingEventAttendee field2 = new TrainingEventAttendee
+                    //{
+                    //    TrainigEventID = new Guid(input.TrainingEventID),
+                    //    EmployeeID = new Guid(input.AssignedTo),
+                    //    Time = 0,
+                    //    Test = 0
+                    //};
+                    //_context.TrainingEventAttendees.Add(field2);
+                    //await _context.SaveChangesAsync();
+
                     if (eventCreator != null && !string.IsNullOrWhiteSpace(input.mentorEmail))
                     {
                         SendA3FormUpdateNotifyEmail sendA3FormUpdateNotifyEmail = new SendA3FormUpdateNotifyEmail()
@@ -1166,7 +1178,7 @@ namespace YourSensei.Service
                 }
                 if (iseventExist != null)
                 {
-                    iseventExist.Status = "Approved";
+                    iseventExist.Status = "Closed";
                     iseventExist.ClosedDate = DateTime.UtcNow;
                     iseventExist.ClosedBy = EmployeeDetail.ID;
                     iseventExist.Isclosed = true;
@@ -1434,6 +1446,17 @@ namespace YourSensei.Service
                     };
                     _context.TrainingEventKaizenDiagrams.Add(field);
                     await _context.SaveChangesAsync();
+
+                    //TrainingEventAttendee field2 = new TrainingEventAttendee
+                    //{
+                    //    TrainigEventID = new Guid(input.TrainingEventID),
+                    //    EmployeeID = new Guid(input.AssignedTo),
+                    //    Time = 0,
+                    //    Test = 0
+                    //};
+                    //_context.TrainingEventAttendees.Add(field2);
+                    //await _context.SaveChangesAsync();
+
                     if (eventCreator != null && !string.IsNullOrWhiteSpace(input.mentorEmail))
                     {
                         SendKaizenFormUpdateNotifyEmail sendKaizenFormUpdateNotifyEmail = new SendKaizenFormUpdateNotifyEmail()
