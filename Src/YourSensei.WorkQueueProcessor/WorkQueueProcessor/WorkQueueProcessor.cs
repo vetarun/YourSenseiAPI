@@ -222,6 +222,18 @@ namespace YourSensei.WorkQueueProcessor
                             taskResponseViewModel = Task.Run(() => _emailWorkQueueService.Save(emailWorkQueue));
                             taskResponseViewModel.Wait();
                             break;
+                        case "CloseEventEmailToMentor":
+                            emailWorkQueue.Status = EmailWorkItemStatus.InProgress.ToString();
+                            emailWorkQueue.ModifiedDate = DateTime.UtcNow;
+                            taskResponseViewModel = Task.Run(() => _emailWorkQueueService.Save(emailWorkQueue));
+                            taskResponseViewModel.Wait();
+
+                            string closeEventMailToMentor = _emailHandler.ProcessCloseEventEmailToMentor(emailWorkQueue);
+                            emailWorkQueue.Status = closeEventMailToMentor;
+                            emailWorkQueue.ModifiedDate = DateTime.UtcNow;
+                            taskResponseViewModel = Task.Run(() => _emailWorkQueueService.Save(emailWorkQueue));
+                            taskResponseViewModel.Wait();
+                            break;
                         case "RejectedEmailFromSensei":
                             emailWorkQueue.Status = EmailWorkItemStatus.InProgress.ToString();
                             emailWorkQueue.ModifiedDate = DateTime.UtcNow;

@@ -131,6 +131,9 @@
     <Content Include="EmailTemplate\CloseA3EventEmailToAttendee.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="EmailTemplate\CloseEventEmailToMentor.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="EmailTemplate\CloseEventEmail.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -16,6 +16,7 @@ namespace YourSensei.WorkQueueProcessor
         string ProcessSubscribePlanRequest(EmailWorkQueue emailWorkQueue);
         string ProcessCloseEventMailToAttendee(EmailWorkQueue emailWorkQueue);
         string ProcessCloseEventEmail(EmailWorkQueue emailWorkQueue);
+        string ProcessCloseEventEmailToMentor(EmailWorkQueue emailWorkQueue);
         string ProcessSendUserForSignup(EmailWorkQueue emailWorkQueue);
         string ProcessSendAdminForApproval(EmailWorkQueue emailWorkQueue);
         string ProcessRejectedEmailFromSensei(EmailWorkQueue emailWorkQueue);

@@ -362,6 +362,30 @@ namespace YourSensei.WorkQueueProcessor
             return EmailWorkItemStatus.Failed.ToString();
 
         }
+        public string ProcessCloseEventEmailToMentor(EmailWorkQueue emailWorkQueue)
+        {
+
+            CloseEventEmailViewModel closeEventEmailTemplate = new JavaScriptSerializer().Deserialize<CloseEventEmailViewModel>(emailWorkQueue.TemplateContent);
+
+            if (closeEventEmailTemplate != null)
+            {
+                string templateContent = ReadTemplateContent(emailWorkQueue.Template);
+                templateContent = templateContent.Replace("[Username]", closeEventEmailTemplate.FullName);
+                templateContent = templateContent.Replace("[TrainingEvent]", closeEventEmailTemplate.TrainingEventName);
+                templateContent = templateContent.Replace("[TrainingEventCreator]", closeEventEmailTemplate.TrainingEventCreator);
+
+                EmailHelperInputModel emailHelperInputModel = new EmailHelperInputModel()
+                {
+                    Subject = emailWorkQueue.Subject,
+                    Email = closeEventEmailTemplate.ToEmail,
+                    Message = templateContent
+                };
+                SendEmail(emailHelperInputModel);
+                return EmailWorkItemStatus.Completed.ToString();
+            }
+            return EmailWorkItemStatus.Failed.ToString();
+
+        }
         public string ProcessRejectedEmailFromSensei(EmailWorkQueue emailWorkQueue)
         {
             Task<Employee> taskEmployee = Task.Run(() => _employeeService.GetEmployeeByUserDetailID(emailWorkQueue.SendToEmployee));
