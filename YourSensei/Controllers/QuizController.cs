@@ -115,5 +115,45 @@ namespace YourSensei.Controllers
             var result = await _service.GetQuizAnswerAssessmentByQuizIDAndEmployeeID(quizID, isActive, employeeID);
             return Ok(result);
         }
+
+        [HttpGet]
+        [Route("GetIncompleteQuiz")]
+        public async Task<IHttpActionResult> GetIncompleteQuiz()
+        {
+            var result = await _service.GetIncompleteQuiz();
+            return Ok(result);
+        }
+
+        [HttpGet]
+        [Route("GetIncompleteQuizByUserIDandCompID")]
+        public async Task<IHttpActionResult> GetIncompleteQuizByUserIDandCompID(string userID, string CompanyID)
+        {
+            var result = await _service.GetIncompleteQuizByUserIDandCompID(userID, CompanyID);
+            return Ok(result);
+        }
+
+        [HttpPost]
+        [Route("SaveQuizFinishStatus")]
+        public async Task<IHttpActionResult> SaveQuizFinishStatus (int quizStatusID)
+        {
+            var result = await _service.SaveQuizFinishStatus(quizStatusID);
+            return Ok(result);
+        }
+
+        [HttpPost]
+        [Route("SaveQuizStartStatus")]
+        public async Task<IHttpActionResult> SaveQuizStartStatus(QuizStatusModel quizStartStatus)
+        {
+            var result = await _service.SaveQuizStartStatus(quizStartStatus);
+            return Ok(result);
+        }
+
+        [HttpPost]
+        [Route("DeleteQuizStatus")]
+        public async Task<IHttpActionResult> DeleteQuizStatus(int quizStatusID)
+        {
+            var result = await _service.DeleteQuizStatus(quizStatusID);
+            return Ok(result);
+        }
     }
 }

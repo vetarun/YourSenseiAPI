@@ -12,13 +12,14 @@ namespace YourSensei.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class KaizenTrainingEventCommunication
+    public partial class QuizStatu
     {
         public int ID { get; set; }
-        public System.Guid TrainingEventID { get; set; }
-        public System.Guid SentBy { get; set; }
-        public System.DateTime SentDate { get; set; }
-        public string Message { get; set; }
-        public string MessageSender { get; set; }
+        public System.Guid UserdetailID { get; set; }
+        public Nullable<System.Guid> CompanyID { get; set; }
+        public System.Guid CompanyLibraryBookID { get; set; }
+        public int QuizID { get; set; }
+        public bool IsQuizStarted { get; set; }
+        public bool IsQuizFinished { get; set; }
     }
 }

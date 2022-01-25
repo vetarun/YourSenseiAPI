@@ -1004,6 +1004,8 @@ namespace YourSensei.Service
         {
             try
             {
+                // Change isAttended boolean logic return corresponding isQuizStarted from QuizStatus Table
+
                 //Guid CompanyID = new Guid(companyID);
                 //Guid UserID = new Guid(userID);
                 //List<BookList> companyLibraryBooks = new List<BookList>();

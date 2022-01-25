@@ -157,7 +157,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="CompanyID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="CompanyLibraryBookLogsID" Type="int" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
@@ -250,7 +250,6 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="MemberID" Type="nvarchar" MaxLength="100" />
           <Property Name="UserRoleID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="OtherRole" Type="nvarchar" MaxLength="250" />
           <Property Name="MentorId" Type="uniqueidentifier" />
@@ -270,6 +269,7 @@
           <Property Name="HomePhone" Type="nvarchar" MaxLength="20" />
           <Property Name="WorkPhone" Type="nvarchar" MaxLength="20" />
           <Property Name="Gender" Type="nvarchar" MaxLength="10" />
+          <Property Name="MemberID" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="InitialAssessmentAnswer">
           <Key>
@@ -330,17 +330,6 @@
           <Property Name="ModifiedBy" Type="uniqueidentifier" Nullable="false" />
           <Property Name="ModifiedDate" Type="datetime2" Precision="7" Nullable="false" />
         </EntityType>
-        <EntityType Name="KaizenTrainingEventCommunication">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TrainingEventID" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="SentBy" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="SentDate" Type="datetime2" Precision="7" Nullable="false" />
-          <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="MessageSender" Type="nvarchar" MaxLength="100" Nullable="false" />
-        </EntityType>
         <EntityType Name="Members">
           <Key>
             <PropertyRef Name="ID" />
@@ -369,7 +358,6 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="MemberID" Type="nvarchar" MaxLength="100" />
           <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="LastName" Type="nvarchar" MaxLength="100" Nullable="false" />
@@ -381,6 +369,7 @@
           <Property Name="ModifiedDate" Type="datetime2" Precision="7" Nullable="false" />
           <Property Name="CreatedBy" Type="uniqueidentifier" Nullable="false" />
           <Property Name="ModifiedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="MemberID" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="MentorCompanyMapping">
           <Key>
@@ -479,6 +468,18 @@
           <Property Name="QuizID" Type="int" Nullable="false" />
           <Property Name="BookID" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
+        <EntityType Name="QuizStatus">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserdetailID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CompanyID" Type="uniqueidentifier" />
+          <Property Name="CompanyLibraryBookID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="QuizID" Type="int" Nullable="false" />
+          <Property Name="IsQuizStarted" Type="bit" Nullable="false" />
+          <Property Name="IsQuizFinished" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="Subscription">
           <Key>
             <PropertyRef Name="ID" />
@@ -491,7 +492,6 @@
           <Property Name="PurchasedBy" Type="uniqueidentifier" Nullable="false" />
           <Property Name="RenewalDate" Type="datetime2" Precision="7" />
           <Property Name="RenewedBy" Type="uniqueidentifier" />
-          <Property Name="IsActivated" Type="bit" Nullable="false" />
           <Property Name="ActivationDate" Type="datetime2" Precision="7" Nullable="false" />
           <Property Name="ActivatedBy" Type="uniqueidentifier" Nullable="false" />
           <Property Name="ExpiryDate" Type="datetime2" Precision="7" />
@@ -500,6 +500,7 @@
           <Property Name="CreateDate" Type="datetime2" Precision="7" Nullable="false" />
           <Property Name="ModifiedBy" Type="uniqueidentifier" Nullable="false" />
           <Property Name="ModifiedDate" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="IsActivated" Type="bit" />
         </EntityType>
         <EntityType Name="SubscriptionPlan">
           <Key>
@@ -642,7 +643,7 @@
           <Property Name="Name" Type="nvarchar(max)" />
           <Property Name="location" Type="nvarchar(max)" />
           <Property Name="instructor" Type="uniqueidentifier" />
-          <Property Name="duration" Type="nvarchar(max)" />
+          <Property Name="duration" Type="nvarchar(max)" Nullable="false" />
           <Property Name="startdate" Type="datetime2" Precision="7" Nullable="false" />
           <Property Name="enddate" Type="datetime2" Precision="7" Nullable="false" />
           <Property Name="CreatedDate" Type="datetime2" Precision="7" Nullable="false" />
@@ -757,7 +758,6 @@ warning 6002: The table/view 'YourSensei_DB.dbo.UserRole' does not have a primar
           <EntitySet Name="InitialAssessmentCategory" EntityType="Self.InitialAssessmentCategory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="InitialAssessmentOption" EntityType="Self.InitialAssessmentOption" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="InitialAssessmentQuestion" EntityType="Self.InitialAssessmentQuestion" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="KaizenTrainingEventCommunication" EntityType="Self.KaizenTrainingEventCommunication" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Members" EntityType="Self.Members" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Mentor" EntityType="Self.Mentor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MentorCompanyMapping" EntityType="Self.MentorCompanyMapping" Schema="dbo" store:Type="Tables" />
@@ -767,6 +767,7 @@ warning 6002: The table/view 'YourSensei_DB.dbo.UserRole' does not have a primar
           <EntitySet Name="Quiz" EntityType="Self.Quiz" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QuizAnswerAssessment" EntityType="Self.QuizAnswerAssessment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QuizBookMapping" EntityType="Self.QuizBookMapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QuizStatus" EntityType="Self.QuizStatus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Subscription" EntityType="Self.Subscription" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SubscriptionPlan" EntityType="Self.SubscriptionPlan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SubscriptionPlanHistory" EntityType="Self.SubscriptionPlanHistory" Schema="dbo" store:Type="Tables" />
@@ -849,10 +850,10 @@ warning 6002: The table/view 'YourSensei_DB.dbo.UserRole' does not have a primar
           <EntitySet Name="BeltRules" EntityType="YourSensei_DBModel.BeltRule" />
           <EntitySet Name="BeltAchievementLogs" EntityType="YourSensei_DBModel.BeltAchievementLog" />
           <EntitySet Name="SubscriptionTransactions" EntityType="YourSensei_DBModel.SubscriptionTransaction" />
-          <EntitySet Name="KaizenTrainingEventCommunications" EntityType="YourSensei_DBModel.KaizenTrainingEventCommunication" />
           <EntitySet Name="TrainingEventKaizenDiagrams" EntityType="YourSensei_DBModel.TrainingEventKaizenDiagram" />
           <EntitySet Name="EmailWorkQueues" EntityType="YourSensei_DBModel.EmailWorkQueue" />
           <EntitySet Name="BookTrackCategories" EntityType="YourSensei_DBModel.BookTrackCategory" />
+          <EntitySet Name="QuizStatus" EntityType="YourSensei_DBModel.QuizStatu" />
           </EntityContainer>
         <ComplexType Name="usp_GetMentorByIsActive_Result">
           <Property Type="Guid" Name="ID" Nullable="false" />
@@ -1002,7 +1003,7 @@ warning 6002: The table/view 'YourSensei_DB.dbo.UserRole' does not have a primar
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Guid" Nullable="false" />
-          <Property Name="MemberID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MemberID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="UserRoleID" Type="Guid" Nullable="false" />
           <Property Name="OtherRole" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="MentorId" Type="Guid" />
@@ -1110,7 +1111,7 @@ warning 6002: The table/view 'YourSensei_DB.dbo.UserRole' does not have a primar
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Guid" Nullable="false" />
-          <Property Name="MemberID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MemberID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="FirstName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="LastName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
@@ -1312,7 +1313,7 @@ warning 6002: The table/view 'YourSensei_DB.dbo.UserRole' does not have a primar
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="location" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="instructor" Type="Guid" />
-          <Property Name="duration" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="duration" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="startdate" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="enddate" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="7" />
@@ -1412,7 +1413,7 @@ warning 6002: The table/view 'YourSensei_DB.dbo.UserRole' does not have a primar
           <Property Name="PurchasedBy" Type="Guid" Nullable="false" />
           <Property Name="RenewalDate" Type="DateTime" Precision="7" />
           <Property Name="RenewedBy" Type="Guid" />
-          <Property Name="IsActivated" Type="Boolean" Nullable="false" />
+          <Property Name="IsActivated" Type="Boolean" />
           <Property Name="ActivationDate" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="ActivatedBy" Type="Guid" Nullable="false" />
           <Property Name="ExpiryDate" Type="DateTime" Precision="7" />
@@ -1525,17 +1526,6 @@ warning 6002: The table/view 'YourSensei_DB.dbo.UserRole' does not have a primar
           <Property Name="TransactionMode" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="PaymentCardDetailID" Type="Int32" Nullable="false" />
         </EntityType>
-        <EntityType Name="KaizenTrainingEventCommunication">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TrainingEventID" Type="Guid" Nullable="false" />
-          <Property Name="SentBy" Type="Guid" Nullable="false" />
-          <Property Name="SentDate" Type="DateTime" Nullable="false" Precision="7" />
-          <Property Name="Message" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="MessageSender" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="TrainingEventKaizenDiagram">
           <Key>
             <PropertyRef Name="ID" />
@@ -1594,6 +1584,18 @@ warning 6002: The table/view 'YourSensei_DB.dbo.UserRole' does not have a primar
           <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="CreatedBy" Type="Guid" Nullable="false" />
           <Property Name="ModifiedBy" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="QuizStatu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserdetailID" Type="Guid" Nullable="false" />
+          <Property Name="CompanyID" Type="Guid" />
+          <Property Name="CompanyLibraryBookID" Type="Guid" Nullable="false" />
+          <Property Name="QuizID" Type="Int32" Nullable="false" />
+          <Property Name="IsQuizStarted" Type="Boolean" Nullable="false" />
+          <Property Name="IsQuizFinished" Type="Boolean" Nullable="false" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -2321,18 +2323,6 @@ warning 6002: The table/view 'YourSensei_DB.dbo.UserRole' does not have a primar
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="KaizenTrainingEventCommunications">
-            <EntityTypeMapping TypeName="YourSensei_DBModel.KaizenTrainingEventCommunication">
-              <MappingFragment StoreEntitySet="KaizenTrainingEventCommunication">
-                <ScalarProperty Name="MessageSender" ColumnName="MessageSender" />
-                <ScalarProperty Name="Message" ColumnName="Message" />
-                <ScalarProperty Name="SentDate" ColumnName="SentDate" />
-                <ScalarProperty Name="SentBy" ColumnName="SentBy" />
-                <ScalarProperty Name="TrainingEventID" ColumnName="TrainingEventID" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="TrainingEventKaizenDiagrams">
             <EntityTypeMapping TypeName="YourSensei_DBModel.TrainingEventKaizenDiagram">
               <MappingFragment StoreEntitySet="TrainingEventKaizenDiagram">
@@ -2392,6 +2382,19 @@ warning 6002: The table/view 'YourSensei_DB.dbo.UserRole' does not have a primar
                 <ScalarProperty Name="TrackName" ColumnName="TrackName" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="TrackId" ColumnName="TrackId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QuizStatus">
+            <EntityTypeMapping TypeName="YourSensei_DBModel.QuizStatu">
+              <MappingFragment StoreEntitySet="QuizStatus">
+                <ScalarProperty Name="IsQuizFinished" ColumnName="IsQuizFinished" />
+                <ScalarProperty Name="IsQuizStarted" ColumnName="IsQuizStarted" />
+                <ScalarProperty Name="QuizID" ColumnName="QuizID" />
+                <ScalarProperty Name="CompanyLibraryBookID" ColumnName="CompanyLibraryBookID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="UserdetailID" ColumnName="UserdetailID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

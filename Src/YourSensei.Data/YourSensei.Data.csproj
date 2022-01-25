@@ -110,9 +110,6 @@
     <Compile Include="InitialAssessmentQuestion.cs">
       <DependentUpon>YourSenseiData.tt</DependentUpon>
     </Compile>
-    <Compile Include="KaizenTrainingEventCommunication.cs">
-      <DependentUpon>YourSenseiData.tt</DependentUpon>
-    </Compile>
     <Compile Include="Member.cs">
       <DependentUpon>YourSenseiData.tt</DependentUpon>
     </Compile>
@@ -139,6 +136,9 @@
       <DependentUpon>YourSenseiData.tt</DependentUpon>
     </Compile>
     <Compile Include="QuizBookMapping.cs">
+      <DependentUpon>YourSenseiData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QuizStatu.cs">
       <DependentUpon>YourSenseiData.tt</DependentUpon>
     </Compile>
     <Compile Include="Subscription.cs">

@@ -22,7 +22,7 @@ namespace YourSensei.Data
         public System.Guid PurchasedBy { get; set; }
         public Nullable<System.DateTime> RenewalDate { get; set; }
         public Nullable<System.Guid> RenewedBy { get; set; }
-        public bool IsActivated { get; set; }
+        public Nullable<bool> IsActivated { get; set; }
         public System.DateTime ActivationDate { get; set; }
         public System.Guid ActivatedBy { get; set; }
         public Nullable<System.DateTime> ExpiryDate { get; set; }

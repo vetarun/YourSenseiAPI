@@ -67,10 +67,10 @@ namespace YourSensei.Data
         public virtual DbSet<BeltRule> BeltRules { get; set; }
         public virtual DbSet<BeltAchievementLog> BeltAchievementLogs { get; set; }
         public virtual DbSet<SubscriptionTransaction> SubscriptionTransactions { get; set; }
-        public virtual DbSet<KaizenTrainingEventCommunication> KaizenTrainingEventCommunications { get; set; }
         public virtual DbSet<TrainingEventKaizenDiagram> TrainingEventKaizenDiagrams { get; set; }
         public virtual DbSet<EmailWorkQueue> EmailWorkQueues { get; set; }
         public virtual DbSet<BookTrackCategory> BookTrackCategories { get; set; }
+        public virtual DbSet<QuizStatu> QuizStatus { get; set; }
     
         public virtual ObjectResult<usp_GetMentorByIsActive_Result> usp_GetMentorByIsActive(Nullable<System.Guid> companyID, Nullable<bool> isActive)
         {

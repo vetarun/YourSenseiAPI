@@ -588,5 +588,146 @@ namespace YourSensei.Service
                 throw ex;
             }
         }
+
+        public async Task<List<QuizStatusModel>> GetIncompleteQuiz()
+        {
+            try
+            {
+                var data = await _context.QuizStatus.Where(a => a.IsQuizStarted == true && a.IsQuizFinished == false).Select(a => new QuizStatusModel
+                {
+                    ID = a.ID,
+                    UserdetailID = a.UserdetailID,
+                    CompanyID = a.CompanyID.HasValue ? a.CompanyID.Value : new Guid(),
+                    CompanyLibraryBookID = a.CompanyLibraryBookID,
+                    QuizID = a.QuizID,
+                    IsQuizStarted = a.IsQuizStarted,
+                    IsQuizFinished = a.IsQuizFinished
+                }).ToListAsync();
+                return data;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<List<QuizStatusModel>> GetIncompleteQuizByUserIDandCompID(string userID, string CompanyID)
+        {
+            try
+            {
+               
+                var data = await _context.QuizStatus.Where(a => a.IsQuizStarted == true && a.IsQuizFinished == false && a.UserdetailID == new Guid(userID) && a.CompanyID == new Guid(CompanyID)).Select(a => new QuizStatusModel
+                {
+
+                    ID = a.ID,
+                    UserdetailID = a.UserdetailID,
+                    CompanyID = a.CompanyID.HasValue ? a.CompanyID.Value : new Guid(),
+                    CompanyLibraryBookID = a.CompanyLibraryBookID,
+                    QuizID = a.QuizID,
+                    IsQuizStarted = a.IsQuizStarted,
+                    IsQuizFinished = a.IsQuizFinished,
+
+                    QuizName = _context.Quizs.Where(q => q.ID == a.QuizID).Select(q => q.Name).FirstOrDefault(),
+                    BookName = _context.CompanyLibraryBooks.Where(b => b.ID == a.CompanyLibraryBookID).Select(b => b.Title).FirstOrDefault()
+                  
+                    
+                }).ToListAsync();
+                
+                return data;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<ResponseViewModel> SaveQuizFinishStatus(int quizStatusID)
+        {
+            try
+            {
+                var data = await _context.QuizStatus.Where(a => a.ID == quizStatusID).Select(a => a).FirstOrDefaultAsync();
+                if (data != null)
+                {
+                    data.IsQuizFinished = true;
+                    _context.SaveChanges();
+                    return new ResponseViewModel { Code = 200, Message = "Quiz Finish Status Successfully Updated!" };
+                }
+                else
+                {
+                    return new ResponseViewModel { Code = 403, Message = "Quiz not Found!" };
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+        public async Task<int> SaveQuizStartStatus(QuizStatusModel quizStartStatus)
+        {
+            try
+            {
+                var data = await _context.QuizStatus.Where(a => a.QuizID == quizStartStatus.QuizID && a.CompanyID == quizStartStatus.CompanyID && a.UserdetailID == quizStartStatus.UserdetailID && a.CompanyLibraryBookID == quizStartStatus.CompanyLibraryBookID).Select(a => a).FirstOrDefaultAsync();
+
+                if (data == null)
+                {
+
+                    QuizStatu quiz = new QuizStatu
+                    {
+                        UserdetailID = quizStartStatus.UserdetailID,
+                        CompanyID = quizStartStatus.CompanyID,
+                        CompanyLibraryBookID = quizStartStatus.CompanyLibraryBookID,
+                        QuizID = quizStartStatus.QuizID,
+                        IsQuizFinished = false,
+                        IsQuizStarted = true
+                  
+                    };
+                    _context.QuizStatus.Add(quiz);
+                    await _context.SaveChangesAsync();
+                    return quiz.ID;
+                }
+                else
+                {
+                    return data.ID;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public async Task<ResponseViewModel> DeleteQuizStatus(int quizStatusID)
+        {
+            var quiz = await _context.QuizStatus.Where(a => a.ID == quizStatusID).Select(a => a).FirstOrDefaultAsync();
+           
+            if (quiz != null)
+            {
+                var quiz1 = await _context.CreditLogs.Where(b => b.KeyID == quiz.CompanyLibraryBookID && b.UserDetailID == quiz.UserdetailID).Select(b => b).FirstOrDefaultAsync();
+                var quiz2 = await _context.QuizAnswerAssessments.Where(c => c.QuizID == quiz.QuizID && c.UserDetailID == quiz.UserdetailID).Select(c => c).FirstOrDefaultAsync();
+
+                _context.QuizStatus.Remove(quiz);
+                await _context.SaveChangesAsync();
+
+                if(quiz1 != null)
+                {
+                    _context.CreditLogs.Remove(quiz1);
+                    await _context.SaveChangesAsync();
+                }
+
+                if(quiz2 != null)
+                {
+                    _context.QuizAnswerAssessments.Remove(quiz2);
+                    await _context.SaveChangesAsync();
+                }
+
+                return new ResponseViewModel { Code = 200, Message = "Quiz Successfully Deleted!" };
+            }
+            else
+            {
+                return new ResponseViewModel { Code = 403, Message = "Quiz not Found!" };
+            }
+        }
     }
 }

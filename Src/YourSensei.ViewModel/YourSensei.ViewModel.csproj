@@ -74,6 +74,7 @@
     <Compile Include="Library\TrackCategoryViewModel.cs" />
     <Compile Include="Library\BookTrackCategoryViewModel.cs" />
     <Compile Include="Mentor\GetMentorByIsActivedatViewModel.cs" />
+    <Compile Include="Quiz\QuizStatusModel.cs" />
     <Compile Include="Subscription\SubscriptionResponseViewModel.cs" />
     <Compile Include="Subscription\SubscriptionViewModel.cs" />
     <Compile Include="Subscription\FeaturesAllowedModel.cs" />

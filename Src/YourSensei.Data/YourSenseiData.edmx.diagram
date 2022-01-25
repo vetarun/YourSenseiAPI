@@ -45,10 +45,10 @@
         <EntityTypeShape EntityType="YourSensei_DBModel.BeltRule" Width="1.5" PointX="19.375" PointY="0.75" />
         <EntityTypeShape EntityType="YourSensei_DBModel.BeltAchievementLog" Width="1.5" PointX="19.375" PointY="14.75" />
         <EntityTypeShape EntityType="YourSensei_DBModel.SubscriptionTransaction" Width="1.5" PointX="9.375" PointY="17.75" />
-        <EntityTypeShape EntityType="YourSensei_DBModel.KaizenTrainingEventCommunication" Width="1.5" PointX="19.375" PointY="17.75" />
         <EntityTypeShape EntityType="YourSensei_DBModel.TrainingEventKaizenDiagram" Width="1.5" PointX="19.375" PointY="20.75" />
         <EntityTypeShape EntityType="YourSensei_DBModel.EmailWorkQueue" Width="1.5" PointX="21.375" PointY="0.75" />
         <EntityTypeShape EntityType="YourSensei_DBModel.BookTrackCategory" Width="1.5" PointX="0.75" PointY="21.75" />
+        <EntityTypeShape EntityType="YourSensei_DBModel.QuizStatu" Width="1.5" PointX="3.375" PointY="21.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

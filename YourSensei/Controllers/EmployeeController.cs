@@ -104,5 +104,13 @@ namespace YourSensei.Controllers
             var result = await _service.GetEmployeeByMentorID(mentorID);
             return Ok(result);
         }
+
+        [HttpGet]
+        [Route("GetEmployeeByUserDetailID")]
+        public async Task<IHttpActionResult> GetEmployeeByUserDetailID(Guid userID)
+        {
+            var result = await _service.GetEmployeeByUserDetailID(userID);
+            return Ok(result);
+        }
     }
 }

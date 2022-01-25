@@ -22,5 +22,10 @@ namespace YourSensei.Service
         Task<ResponseViewModel> ChangePublishedSetting(int quizID, bool IsPublished);
         Task<List<QuizAnswerAssessmentInputViewModel>> GetQuizByMentorIDAndEmployeeID(string mentorID, bool isActive, string employeeID);
         Task<List<QuizAnswerAssessmentInputViewModel>> GetQuizAnswerAssessmentByQuizIDAndEmployeeID(int quizID, bool isActive, string employeeID);
+        Task<List<QuizStatusModel>> GetIncompleteQuiz();
+        Task<List<QuizStatusModel>> GetIncompleteQuizByUserIDandCompID(string userID, string CompanyID);
+        Task<ResponseViewModel> SaveQuizFinishStatus(int quizStatusID);
+        Task<int> SaveQuizStartStatus(QuizStatusModel quizStartStatus);
+        Task<ResponseViewModel> DeleteQuizStatus(int quizStatusID);
     }
 }
