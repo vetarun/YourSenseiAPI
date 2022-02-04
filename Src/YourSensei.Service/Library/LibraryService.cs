@@ -1020,7 +1020,7 @@ namespace YourSensei.Service
                 //    companyLibraryBook.CoverImageUrl = string.IsNullOrWhiteSpace(companyLibraryBook.CoverImageUrl) ? "no-image-icon-15.png" : companyLibraryBook.CoverImageUrl;
                 //}
 
-                return companyLibraryBooks;
+                return companyLibraryBooks;              
             }
             catch (Exception ex)
             {
