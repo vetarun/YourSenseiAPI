@@ -29,6 +29,7 @@ namespace YourSensei.WorkQueueProcessor
                 var data = (from e in _context.Employees
                             join ud in _context.UserDetails on e.ID equals ud.EmployeeID
                             join r in _context.UserCategories on ud.UserType equals r.Id
+                            where e.IsActive == true
                             select new EmployeeResponseViewModel()
                             {
                                 Id = e.ID.ToString(),
