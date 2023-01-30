@@ -380,8 +380,10 @@ namespace YourSensei.Utility
             MailText = MailText.Replace("[newusername]","Kobus");
             if (!String.IsNullOrEmpty(details.companyname))
             {
-                MailText = MailText.Replace("[content]", details.FirstName + "is registered himself as company :-" +details.companyname+ "and requested for approval." + "<br>" +
-                    "Please click on this link to see request <a href =http://www.yoursensei.org/#/Main/resetpassword?resetlink" + ">Request Page</a></br>");
+                //MailText = MailText.Replace("[content]", details.FirstName + "is registered himself as company :-" +details.companyname+ "and requested for approval." + "<br>" +
+                //    "Please click on this link to see request <a href =http://www.yoursensei.org/#/Main/resetpassword?resetlink" + ">Request Page</a></br>");
+                MailText = MailText.Replace("[content]", details.FirstName + "has registered the new company :- " + details.companyname + "and requested for approval." + "<br>" +
+                    "Please click on this link to see request <a href =http://www.yoursensei.org/#/Main/resetpassword?resetlink" + ">Request Page</a></br>");  //Content Changed As Given.
             }
             else
             {
