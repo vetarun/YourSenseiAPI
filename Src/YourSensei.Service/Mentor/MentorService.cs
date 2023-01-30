@@ -183,13 +183,13 @@ namespace YourSensei.Service
                                 };
                                 EmailWorkQueue userEmailWorkQueue = new EmailWorkQueue
                                 {
-                                    WorkItemType = "SendWelcomeEmailToEmployee",
+                                    WorkItemType = "SendWelcomeEmailToMentor", //tomentor
                                     KeyID = "",
                                     KeyType = "",
                                     SendToEmployee = Guid.Empty,
                                     Subject = "Welcome to Your Sensei",
                                     Body = "",
-                                    Template = "SendWelcomeEmailToEmployee.html",
+                                    Template = "SendWelcomeEmailToMentor.html",
                                     TemplateContent = new JavaScriptSerializer().Serialize(welMailToEmp),
                                     Status = "Pending",
                                     CreatedDate = DateTime.UtcNow,

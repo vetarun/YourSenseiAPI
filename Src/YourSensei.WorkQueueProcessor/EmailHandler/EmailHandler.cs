@@ -603,7 +603,8 @@ namespace YourSensei.WorkQueueProcessor
                 SignupInputViewModel details = signupInput.Result;
                 if (!String.IsNullOrEmpty(details.companyname))
                 {
-                    templateContent = templateContent.Replace("[FirstNameOrCompayName]", details.FirstName + " is registered himself as company :-" + details.companyname + " and requested for approval.");
+                    //templateContent = templateContent.Replace("[FirstNameOrCompayName]", details.FirstName + " is registered himself as company :-" + details.companyname + " and requested for approval.");
+                    templateContent = templateContent.Replace("[FirstNameOrCompayName]", details.FirstName + " has registered the new company :- " + details.companyname + " and requested for approval."); //Content Changed As Given.
                 }
                 else
                 {
@@ -746,7 +747,7 @@ namespace YourSensei.WorkQueueProcessor
             if (emailWorkQueue != null)
             {
                 string templateContent = ReadTemplateContent(emailWorkQueue.Template);
-                templateContent = templateContent.Replace("[Username]", welMailToEmpViewModel.Username);
+                templateContent = templateContent.Replace("[Username]", welMailToEmpViewModel.UserEmail);
                 templateContent = templateContent.Replace("[DefaultPass]", ConfigurationManager.AppSettings["DefaultPass"].ToString());
 
                 EmailHelperInputModel emailHelperInputModel = new EmailHelperInputModel()

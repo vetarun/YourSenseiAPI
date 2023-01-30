@@ -495,7 +495,7 @@ namespace YourSensei.Service
             }
             catch (Exception ex)
             {
-                return new ResponseViewModel { Code = 400, Message = "Some thing went worng please try after a moment" };
+                return new ResponseViewModel { Code = 400, Message = "Something went wrong. Please try again later." };
             }
         }
 
@@ -640,7 +640,7 @@ namespace YourSensei.Service
             }
             catch (Exception ex)
             {
-                return new ResponseViewModel { Code = 400, Message = "Some thing went worng please try after a moment" };
+                return new ResponseViewModel { Code = 400, Message = "Something went wrong. Please try again later." };
             }
         }
 
@@ -767,7 +767,7 @@ namespace YourSensei.Service
             catch (Exception ex)
             {
 
-                return new ResponseViewModel { Code = 400, Message = "Some thing went worng please try after a moment" };
+                return new ResponseViewModel { Code = 400, Message = "Something went wrong. Please try again later." };
             }
         }
 

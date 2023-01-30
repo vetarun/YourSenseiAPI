@@ -370,7 +370,7 @@ namespace YourSensei.WorkQueueProcessor
                             taskResponseViewModel = Task.Run(() => _emailWorkQueueService.Save(emailWorkQueue));
                             taskResponseViewModel.Wait();
                             break;
-
+                        case "SendWelcomeEmailToMentor":
                         case "SendWelcomeEmailToEmployee":
                             emailWorkQueue.Status = EmailWorkItemStatus.InProgress.ToString();
                             emailWorkQueue.ModifiedDate = DateTime.UtcNow;
