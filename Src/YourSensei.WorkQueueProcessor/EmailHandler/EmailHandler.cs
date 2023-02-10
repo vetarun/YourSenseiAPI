@@ -749,6 +749,7 @@ namespace YourSensei.WorkQueueProcessor
                 string templateContent = ReadTemplateContent(emailWorkQueue.Template);
                 templateContent = templateContent.Replace("[Username]", welMailToEmpViewModel.UserEmail);
                 templateContent = templateContent.Replace("[DefaultPass]", ConfigurationManager.AppSettings["DefaultPass"].ToString());
+                templateContent = templateContent.Replace("[AngularUrl]", ConfigurationManager.AppSettings["AngularUrl"].ToString());
 
                 EmailHelperInputModel emailHelperInputModel = new EmailHelperInputModel()
                 {

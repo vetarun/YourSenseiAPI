@@ -314,7 +314,7 @@ namespace YourSensei.Service
                 bool valid = false;
                 DateTime? subsExpireDate = new DateTime();
                 Guid mentorCompanyID = new Guid();
-                var IsUserExist = await _context.UserDetails.FirstOrDefaultAsync(d => d.UserName == email);
+                var IsUserExist = await _context.UserDetails.FirstOrDefaultAsync(d => d.UserName == email && d.IsActive == true);
 
                 if (IsUserExist != null)
                 {
@@ -334,16 +334,20 @@ namespace YourSensei.Service
                     {
                         return new LoginResponse { Code = 400, Message = "password does not matched" };
                     }
-                    // if account is deactivated then redirect to login page
-                    if (!IsUserExist.IsActive)
-                    {
-                        return new LoginResponse { Code = 400, Message = "Your Account is Deactivated By the Administrator" };
-                    }
+                    //// if account is deactivated then redirect to login page
+                    //if (!IsUserExist.IsActive)
+                    //{
+                    //    return new LoginResponse { Code = 400, Message = "Your Account is Deactivated By the Administrator" };
+                    //}
 
                     bool IsDollarApprover = false;
                     SubscriptionPlan subscriptionPlan = new SubscriptionPlan();
                     if (EmployeeDetails != null)
                     {
+                        if (!EmployeeDetails.IsActive)
+                        {
+                            return new LoginResponse { Code = 400, Message = "Your Account is Deactivated By the Administrator" };
+                        }
                         Subscription subscription = null;
                         if (EmployeeDetails.CompanyId == new Guid("00000000-0000-0000-0000-000000000000"))
                         {
@@ -373,6 +377,10 @@ namespace YourSensei.Service
                     }
                     else if (mentor != null)
                     {
+                        if (!mentor.IsActive)
+                        {
+                            return new LoginResponse { Code = 400, Message = "Your Account is Deactivated By the Administrator" };
+                        }
                         subsExpireDate = DateTime.UtcNow;
 
                         IsDollarApprover = (from cs in _context.CompanySettings

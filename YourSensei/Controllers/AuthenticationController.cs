@@ -103,7 +103,7 @@ namespace YourSensei.Controllers
 
             var result = await _service.ForgotPassword(email);
                 return Ok(result);
-            
+
         }
 
         [HttpGet]
