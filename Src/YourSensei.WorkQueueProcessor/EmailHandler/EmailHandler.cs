@@ -572,7 +572,7 @@ namespace YourSensei.WorkQueueProcessor
                 }
                 else
                 {
-                    templateContent = templateContent.Replace("[FirstNameOrCompayName]", details.FirstName + " is requested for Approval.");
+                    templateContent = templateContent.Replace("[FirstNameOrCompayName]", details.FirstName + " is requesting a new login for approval.");
                 }
                 EmailHelperInputModel emailHelperInputModel = new EmailHelperInputModel()
                 {

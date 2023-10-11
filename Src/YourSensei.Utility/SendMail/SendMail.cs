@@ -385,7 +385,7 @@ namespace YourSensei.Utility
             }
             else
             {
-                MailText = MailText.Replace("[content]", details.FirstName + "is requested for Approval." + "<br>" +
+                MailText = MailText.Replace("[content]", details.FirstName + "is requesting a new login for approval." + "<br>" +
                     "Please click on this link to see request <a href =http://www.yoursensei.org/#/Main/resetpassword?resetlink" + ">Request Page</a></br>");
             }
             //StringBuilder str = new StringBuilder();
